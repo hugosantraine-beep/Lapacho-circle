@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lapacho Circle — Opportunities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1F3A2E; --green-2:#2F5D3A; --pink:#E8559A; --pink-soft:#FCE8F1; --cream:#F6F1E7; --sand:#E6DECD;
+  --ink:#1A231E; --muted:#56615A; --white:#FFFFFF;
+  --re:#2F5D3A; --be:#1E3A5F; --fp:#3B2A5A;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.5}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* Header */
+header{background:var(--green);color:var(--cream)}
+.top{display:flex;align-items:center;gap:12px;padding:16px 0}
+.top svg{width:40px;height:40px;flex:none}
+.brand{font-family:Fraunces,serif;font-weight:700;font-size:21px;letter-spacing:.2px}
+.top .tag{margin-left:auto;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;opacity:.8}
+.hero{padding:28px 0 40px}
+.hero h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(30px,5vw,48px);line-height:1.1;margin:0 0 12px;max-width:760px}
+.hero h1 em{font-style:normal;color:#F7A9CB}
+.hero p{margin:0;max-width:620px;opacity:.88;font-size:17px}
+.stats{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap}
+.stat b{display:block;font-family:Fraunces,serif;font-size:30px;font-weight:700;color:#fff}
+.stat span{font-size:13px;opacity:.8}
+
+/* Filters */
+.bar{position:sticky;top:0;z-index:5;background:var(--cream);border-bottom:1px solid var(--sand)}
+.filters{display:flex;gap:8px;padding:14px 0;overflow-x:auto;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--sand);background:#fff;color:var(--ink);border-radius:999px;padding:10px 16px;font:500 14px Inter,sans-serif;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;gap:8px}
+.chip .dot{width:10px;height:10px;border-radius:50%}
+.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.sep{flex:none;width:1px;background:var(--sand);margin:6px 4px}
+
+/* Grid */
+main{padding:28px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--sand);display:flex;flex-direction:column}
+.media{position:relative;aspect-ratio:16/10;background:var(--sand)}
+.media img{width:100%;height:100%;object-fit:cover;display:block}
+.badges{position:absolute;left:12px;top:12px;display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;color:#fff;letter-spacing:.2px}
+.status{position:absolute;right:12px;top:12px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:#fff;color:var(--ink)}
+.status.open{background:var(--pink);color:#fff}
+.status.funded{background:#fff;color:var(--muted)}
+.card.is-funded .media img{filter:grayscale(.55) brightness(.92)}
+.body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.ref{font-size:12px;color:var(--muted);letter-spacing:.6px}
+.card h2{font-family:Fraunces,serif;font-weight:700;font-size:22px;line-height:1.2;margin:0}
+.loc{font-size:14px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.loc svg{width:15px;height:15px;flex:none}
+.facts{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.facts li{display:flex;gap:8px}
+.facts li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);margin-top:8px;flex:none}
+.price{margin-top:auto;padding-top:12px;border-top:1px dashed var(--sand);display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price b{font-family:Fraunces,serif;font-size:21px;color:var(--green)}
+.price span{font-size:12.5px;color:var(--muted)}
+.cta{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:12px;background:var(--green);color:#fff;text-decoration:none;font-weight:600;font-size:15px;margin-top:6px}
+.cta:hover{background:var(--green-2)}
+.cta svg{width:18px;height:18px}
+.cta.ghost{background:transparent;color:var(--muted);border:1px solid var(--sand);cursor:default}
+.empty{grid-column:1/-1;background:#fff;border:1px dashed var(--sand);border-radius:16px;padding:32px 20px;text-align:center;color:var(--muted)}
+.empty b{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}
+
+/* How + legal */
+section.how{padding:44px 0 8px}
+h3.sec{font-family:Fraunces,serif;font-weight:700;font-size:26px;margin:0 0 18px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.step{background:#fff;border:1px solid var(--sand);border-radius:16px;padding:18px}
+.step .n{width:30px;height:30px;border-radius:50%;background:var(--pink);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:10px}
+.step b{display:block;margin-bottom:4px}
+.step p{margin:0;font-size:14.5px;color:var(--muted)}
+.contact{margin:30px 0 0;background:var(--green);color:var(--cream);border-radius:18px;padding:24px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.contact p{margin:0;max-width:560px}
+.contact .cta{background:var(--pink);padding:0 20px}
+.contact .cta:hover{background:#d34686}
+.contact small{display:block;opacity:.75;margin-top:4px}
+footer{padding:28px 0 40px;font-size:12.5px;color:var(--muted)}
+footer p{margin:0 0 8px;max-width:860px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="top">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#F6F1E7"/><rect x="94" y="104" width="12" height="54" rx="4" fill="#1F3A2E"/><circle cx="70" cy="98" r="26" fill="#E8559A"/><circle cx="130" cy="98" r="26" fill="#E8559A"/><circle cx="84" cy="70" r="26" fill="#E8559A"/><circle cx="116" cy="70" r="26" fill="#E8559A"/><circle cx="100" cy="90" r="30" fill="#E8559A"/></svg>
+      <span class="brand">Lapacho Circle</span>
+      <span class="tag">Opportunities</span>
+    </div>
+    <div class="hero">
+      <h1>Investment opportunities in Paraguay, <em>selected on the ground</em> in Asunción.</h1>
+      <p>Every opportunity shared in the community, in one place. Browse by channel, then message us privately for the full sheet.</p>
+      <div class="stats">
+        <div class="stat"><b id="s-open">0</b><span>open now</span></div>
+        <div class="stat" id="stat-funded"><b id="s-funded">0</b><span>already funded</span></div>
+        <div class="stat"><b>3</b><span>channels</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="filters" id="filters" role="group" aria-label="Filter opportunities"></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="grid" id="grid" aria-live="polite"></div>
+
+  <section class="how">
+    <h3 class="sec">How it works</h3>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><b>Browse</b><p>Each card is a short summary. Opportunities are posted in the WhatsApp channels first, then listed here.</p></div>
+      <div class="step"><div class="n">2</div><b>Request the full sheet</b><p>Message us with the reference. You receive a confidential sheet with figures, contract terms and risks.</p></div>
+      <div class="step"><div class="n">3</div><b>Visit, review, decide</b><p>Visit the site and meet the developer with us. Contracts are signed in front of a notary.</p></div>
+    </div>
+
+    <div class="contact">
+      <p><b>Have an opportunity to submit, or a question?</b><br>Owners, brokers and developers are welcome. Every submission is reviewed; not everything gets published.<small>WhatsApp: <span id="wa-text"></span></small></p>
+      <a class="cta" id="wa-main" href="#" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        Message us on WhatsApp
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p><b>Transparency.</b> Lapacho Circle may receive a commission from some partners when a deal closes. Publication on this page is a selection, not an endorsement or a guarantee.</p>
+  <p><b>Disclaimer.</b> Nothing on this page is financial, legal or tax advice. Figures are provided by developers or estimated from public listings and are not independently audited. Every investment carries risk, including currency risk. Do your own due diligence and consult qualified professionals before investing.</p>
+  <p>Last updated: <span id="updated"></span></p>
+</footer>
+
+<script>
+/* ============ EDIT HERE ============ */
+const WHATSAPP_NUMBER = "595982267930";   // international format, digits only
+const WHATSAPP_DISPLAY = "+595 982 267 930";
+const LAST_UPDATED = "9 November 2026";
+
+const CHANNELS = {
+  "real-estate":       { label: "Real Estate",        color: "var(--re)" },
+  "business-equity":   { label: "Business & Equity",  color: "var(--be)" },
+  "financial-products":{ label: "Financial Products", color: "var(--fp)" }
+};
+
+/* status: "open" or "funded" */
+const OPPORTUNITIES = [
+  {
+    ref: "LC-RE-002",
+    channel: "real-estate",
+    status: "open",
+    title: "Altea Hub · Student studios",
+    location: "Loma Pytã, Asunción · 500 m from UMAX",
+    image: "img/altea-hub.jpg",
+    facts: [
+      "30 m² studios with balcony, built for medical students",
+      "Rooftop pool, coworking, laundry, smart lock & wifi",
+      "Developer with 89 projects since 2013"
+    ],
+    price: "From USD 52,500",
+    priceNote: "Off-plan purchase"
+  }
+];
+/* =================================== */
+
+const grid = document.getElementById("grid");
+const filtersEl = document.getElementById("filters");
+let state = { channel: "all", status: "all" };
+try { const s = JSON.parse(localStorage.getItem("lc-filters")); if (s) state = Object.assign(state, s); } catch(e) {}
+
+const waLink = (text) => "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function buildFilters(){
+  const items = [
+    {k:"channel", v:"all", label:"All channels"},
+    ...Object.entries(CHANNELS).map(([v,c]) => ({k:"channel", v, label:c.label, color:c.color})),
+    {sep:true},
+    {k:"status", v:"all", label:"Any status"},
+    {k:"status", v:"open", label:"Open"},
+    {k:"status", v:"funded", label:"Funded"}
+  ];
+  filtersEl.innerHTML = items.map(i => i.sep ? '<span class="sep" aria-hidden="true"></span>' :
+    `<button class="chip" type="button" data-k="${i.k}" data-v="${i.v}" aria-pressed="${state[i.k]===i.v}">${i.color?`<span class="dot" style="background:${i.color}"></span>`:""}${esc(i.label)}</button>`).join("");
+}
+
+function render(){
+  const list = OPPORTUNITIES
+    .filter(o => (state.channel==="all"||o.channel===state.channel) && (state.status==="all"||o.status===state.status))
+    .sort((a,b) => (a.status==="open"?0:1)-(b.status==="open"?0:1));
+  if (!list.length){
+    const ch = CHANNELS[state.channel];
+    grid.innerHTML = `<div class="empty"><b>No ${state.status==="funded"?"funded":"open"} opportunity${ch?" in "+esc(ch.label):""} right now.</b>New deals are posted in the WhatsApp channels first. Message us to be notified.</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(o => {
+    const ch = CHANNELS[o.channel];
+    const open = o.status === "open";
+    const cta = open
+      ? `<a class="cta" href="${waLink(`Hi Hugo, I'd like the full sheet for ${o.title} (${o.ref}).`)}" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>Request the full sheet</a>`
+      : `<span class="cta ghost">Funded · closed to new investors</span>`;
+    return `<article class="card ${open?"":"is-funded"}">
+      <div class="media">
+        <img src="${esc(o.image)}" alt="${esc(o.title)}" loading="lazy">
+        <div class="badges"><span class="badge" style="background:${ch.color}">${esc(ch.label)}</span></div>
+        <span class="status ${open?"open":"funded"}">${open?"Open":"Funded"}</span>
+      </div>
+      <div class="body">
+        <div class="ref">REF. ${esc(o.ref)}</div>
+        <h2>${esc(o.title)}</h2>
+        <div class="loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>${esc(o.location)}</div>
+        <ul class="facts">${o.facts.map(f=>`<li>${esc(f)}</li>`).join("")}</ul>
+        <div class="price"><b>${esc(o.price)}</b><span>${esc(o.priceNote||"")}</span></div>
+        ${cta}
+      </div>
+    </article>`;
+  }).join("");
+}
+
+filtersEl.addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  state[b.dataset.k] = b.dataset.v;
+  try { localStorage.setItem("lc-filters", JSON.stringify(state)); } catch(err) {}
+  buildFilters(); render();
+});
+
+document.getElementById("s-open").textContent = OPPORTUNITIES.filter(o=>o.status==="open").length;
+const nFunded = OPPORTUNITIES.filter(o=>o.status==="funded").length;
+document.getElementById("s-funded").textContent = nFunded;
+if (!nFunded) document.getElementById("stat-funded").style.display = "none";
+document.getElementById("updated").textContent = LAST_UPDATED;
+document.getElementById("wa-text").textContent = WHATSAPP_DISPLAY;
+document.getElementById("wa-main").href = waLink("Hi Hugo, I'm writing from the Lapacho Circle opportunities page.");
+buildFilters(); render();
+</script>
+</body>
+</html>

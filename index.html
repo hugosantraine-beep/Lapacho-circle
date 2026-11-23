@@ -15,36 +15,36 @@
   --re:#2F5D3A; --be:#1E3A5F; --fp:#3B2A5A;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.5}
+html,body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.5}
 a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px}
 
 /* Header */
 header{background:var(--green);color:var(--cream)}
-.top{display:flex;align-items:center;gap:12px;padding:16px 0}
+.top{display:flex;align-items:center;gap:12px;padding:12px 0}
 .top svg{width:40px;height:40px;flex:none}
 .brand{font-family:Fraunces,serif;font-weight:700;font-size:21px;letter-spacing:.2px}
 .top .tag{margin-left:auto;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;opacity:.8}
-.hero{padding:28px 0 40px}
-.hero h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(30px,5vw,48px);line-height:1.1;margin:0 0 12px;max-width:760px}
+.hero{padding:14px 0 26px}
+.hero h1{font-family:Fraunces,serif;font-weight:500;font-size:clamp(26px,3.4vw,38px);line-height:1.1;margin:0 0 12px;max-width:760px}
 .hero h1 em{font-style:normal;color:#F7A9CB}
-.hero p{margin:0;max-width:620px;opacity:.88;font-size:17px}
-.stats{display:flex;gap:28px;margin-top:24px;flex-wrap:wrap}
-.stat b{display:block;font-family:Fraunces,serif;font-size:30px;font-weight:700;color:#fff}
+.hero p{margin:0;max-width:620px;opacity:.88;font-size:15.5px}
+.stats{display:flex;gap:28px;margin-top:16px;flex-wrap:wrap}
+.stat b{display:block;font-family:Fraunces,serif;font-size:24px;font-weight:700;color:#fff}
 .stat span{font-size:13px;opacity:.8}
 
 /* Filters */
 .bar{position:sticky;top:0;z-index:5;background:var(--cream);border-bottom:1px solid var(--sand)}
-.filters{display:flex;gap:8px;padding:14px 0;overflow-x:auto;scrollbar-width:none}
+.filters{display:flex;gap:8px;padding:10px 0;overflow-x:auto;scrollbar-width:none}
 .filters::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1px solid var(--sand);background:#fff;color:var(--ink);border-radius:999px;padding:10px 16px;font:500 14px Inter,sans-serif;cursor:pointer;min-height:44px;display:inline-flex;align-items:center;gap:8px}
+.chip{flex:none;border:1px solid var(--sand);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;font:500 13.5px Inter,sans-serif;cursor:pointer;min-height:40px;display:inline-flex;align-items:center;gap:8px}
 .chip .dot{width:10px;height:10px;border-radius:50%}
 .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
 .sep{flex:none;width:1px;background:var(--sand);margin:6px 4px}
 
 /* Grid */
-main{padding:28px 0 12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+main{padding:20px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
 .card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--sand);display:flex;flex-direction:column}
 .media{position:relative;aspect-ratio:16/10;background:var(--sand)}
 .media img{width:100%;height:100%;object-fit:cover;display:block}
@@ -54,12 +54,12 @@ main{padding:28px 0 12px}
 .status.open{background:var(--pink);color:#fff}
 .status.funded{background:#fff;color:var(--muted)}
 .card.is-funded .media img{filter:grayscale(.55) brightness(.92)}
-.body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.body{padding:15px 15px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
 .ref{font-size:12px;color:var(--muted);letter-spacing:.6px}
-.card h2{font-family:Fraunces,serif;font-weight:700;font-size:22px;line-height:1.2;margin:0}
+.card h2{font-family:Fraunces,serif;font-weight:700;font-size:19px;line-height:1.2;margin:0}
 .loc{font-size:14px;color:var(--muted);display:flex;gap:6px;align-items:center}
 .loc svg{width:15px;height:15px;flex:none}
-.facts{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.facts{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
 .facts li{display:flex;gap:8px}
 .facts li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);margin-top:8px;flex:none}
 .hl{align-self:flex-start;background:var(--pink-soft);color:#9B2C61;font-weight:600;font-size:13px;padding:6px 10px;border-radius:8px}
@@ -86,7 +86,7 @@ main{padding:28px 0 12px}
 .meta dt{flex:none;width:68px;font-weight:600;color:var(--green)}
 .meta dd{margin:0;color:var(--ink)}
 .price{margin-top:auto;padding-top:12px;border-top:1px dashed var(--sand);display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.price b{font-family:Fraunces,serif;font-size:21px;color:var(--green)}
+.price b{font-family:Fraunces,serif;font-size:18px;color:var(--green)}
 .price span{font-size:12.5px;color:var(--muted)}
 .cta{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:12px;background:var(--green);color:#fff;text-decoration:none;font-weight:600;font-size:15px;margin-top:6px}
 .cta:hover{background:var(--green-2)}
@@ -110,9 +110,9 @@ h3.sec{font-family:Fraunces,serif;font-weight:700;font-size:26px;margin:0 0 18px
 .contact small{display:block;opacity:.75;margin-top:4px}
 footer{padding:28px 0 40px;font-size:12.5px;color:var(--muted)}
 footer p{margin:0 0 8px;max-width:860px}
-#map-wrap{margin:0 0 24px}
+#map-wrap{margin:0 0 18px}
 .lc-tiles{filter:saturate(.55) sepia(.12)}
-#map{height:340px;border-radius:16px;border:1px solid var(--sand);background:#e9e4d8;z-index:0}
+#map{height:300px;border-radius:16px;border:1px solid var(--sand);background:#e9e4d8;z-index:0}
 .map-note{font-size:12.5px;color:var(--muted);margin-top:6px}
 .lc-pin{width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35)}
 .leaflet-popup-content{font:13px Inter,sans-serif;margin:10px 12px}
@@ -819,7 +819,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 <main class="wrap">
   <div id="map-wrap">
     <div id="map" role="region" aria-label="Map of opportunity locations"></div>
-    <div class="map-note">Pins show the neighborhood, not the exact address.</div>
+    <div class="map-note">Pins show the location of each project.</div>
   </div>
   <div class="grid" id="grid" aria-live="polite"></div>
 
@@ -864,7 +864,7 @@ const CHANNELS = {
 const OPPORTUNITIES = [
   {
     ref: "LC-RE-007",
-    geo: [-25.2470, -57.5135],
+    geo: [-25.26331, -57.51129],
     area: "Monte Alto, Luque",
     channel: "real-estate",
     status: "open",
@@ -885,7 +885,7 @@ const OPPORTUNITIES = [
   },
   {
     ref: "LC-RE-006",
-    geo: [-25.2215, -57.5345],
+    geo: [-25.23716, -57.53753],
     area: "Mariano Roque Alonso",
     channel: "real-estate",
     status: "open",
@@ -932,7 +932,7 @@ const OPPORTUNITIES = [
   },
   {
     ref: "LC-RE-005",
-    geo: [-25.2985, -57.6045],
+    geo: [-25.29283, -57.58719],
     area: "Recoleta",
     channel: "real-estate",
     status: "open",
@@ -953,7 +953,7 @@ const OPPORTUNITIES = [
   },
   {
     ref: "LC-RE-004",
-    geo: [-25.2950, -57.5990],
+    geo: [-25.29384, -57.58317],
     area: "Recoleta",
     channel: "real-estate",
     status: "open",
@@ -973,7 +973,7 @@ const OPPORTUNITIES = [
   },
   {
     ref: "LC-RE-003",
-    geo: [-25.2780, -57.5700],
+    geo: [-25.28557, -57.54382],
     area: "Madame Lynch",
     channel: "real-estate",
     status: "open",
@@ -992,7 +992,7 @@ const OPPORTUNITIES = [
   },
   {
     ref: "LC-RE-002",
-    geo: [-25.2340, -57.5400],
+    geo: [-25.23309, -57.53569],
     area: "Loma Pytã",
     channel: "real-estate",
     status: "open",
@@ -1064,9 +1064,8 @@ function updateMap(list){
   });
   document.getElementById("map-wrap").style.display = pts.length ? "" : "none";
   map.invalidateSize();
-  if(pts.length===1) map.setView(pts[0],13);
-  else if(pts.length) map.fitBounds(pts,{padding:[40,40],maxZoom:13});
-  setTimeout(()=>map.invalidateSize(),50);
+  const fit=()=>{ map.invalidateSize(); if(pts.length===1) map.setView(pts[0],13); else if(pts.length) map.fitBounds(pts,{padding:[30,30],maxZoom:13}); };
+  fit(); setTimeout(fit,80);
 }
 function render(){
   const list = OPPORTUNITIES

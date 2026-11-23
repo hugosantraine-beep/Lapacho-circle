@@ -111,6 +111,7 @@ h3.sec{font-family:Fraunces,serif;font-weight:700;font-size:26px;margin:0 0 18px
 footer{padding:28px 0 40px;font-size:12.5px;color:var(--muted)}
 footer p{margin:0 0 8px;max-width:860px}
 #map-wrap{margin:0 0 24px}
+.lc-tiles{filter:saturate(.55) sepia(.12)}
 #map{height:340px;border-radius:16px;border:1px solid var(--sand);background:#e9e4d8;z-index:0}
 .map-note{font-size:12.5px;color:var(--muted);margin-top:6px}
 .lc-pin{width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35)}
@@ -1036,7 +1037,7 @@ let map=null, layer=null;
 function initMap(){
   if (typeof L==="undefined") { document.getElementById("map-wrap").style.display="none"; return; }
   map = L.map("map",{scrollWheelZoom:false, zoomControl:true}).setView([-25.27,-57.56],12);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",{maxZoom:17, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>'}).addTo(map);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18, className:"lc-tiles", attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
   layer = L.layerGroup().addTo(map);
 }
 function goToCard(ref){
@@ -1045,6 +1046,8 @@ function goToCard(ref){
   el.classList.add("flash"); setTimeout(()=>el.classList.remove("flash"),1800);
 }
 function updateMap(list){
+  const wrap=document.getElementById("map-wrap");
+  if(state.channel!=="real-estate"){ wrap.style.display="none"; return; }
   if(!map) return;
   layer.clearLayers();
   const pts=[];
@@ -1060,6 +1063,7 @@ function updateMap(list){
     pts.push(o.geo);
   });
   document.getElementById("map-wrap").style.display = pts.length ? "" : "none";
+  map.invalidateSize();
   if(pts.length===1) map.setView(pts[0],13);
   else if(pts.length) map.fitBounds(pts,{padding:[40,40],maxZoom:13});
   setTimeout(()=>map.invalidateSize(),50);

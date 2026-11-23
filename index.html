@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 200 200%27%3E%3Ccircle cx=%27100%27 cy=%27100%27 r=%27100%27 fill=%27%231F3A2E%27/%3E%3Crect x=%2794%27 y=%27104%27 width=%2712%27 height=%2754%27 rx=%274%27 fill=%27%23F6F1E7%27/%3E%3Ccircle cx=%2770%27 cy=%2798%27 r=%2726%27 fill=%27%23E8559A%27/%3E%3Ccircle cx=%27130%27 cy=%2798%27 r=%2726%27 fill=%27%23E8559A%27/%3E%3Ccircle cx=%2784%27 cy=%2770%27 r=%2726%27 fill=%27%23E8559A%27/%3E%3Ccircle cx=%27116%27 cy=%2770%27 r=%2726%27 fill=%27%23E8559A%27/%3E%3Ccircle cx=%27100%27 cy=%2790%27 r=%2730%27 fill=%27%23E8559A%27/%3E%3C/svg%3E">
 <title>Lapacho Circle — Opportunities</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -40,6 +41,8 @@ header{background:var(--green);color:var(--cream)}
 .chip{flex:none;border:1px solid var(--sand);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;font:500 13.5px Inter,sans-serif;cursor:pointer;min-height:40px;display:inline-flex;align-items:center;gap:8px}
 .chip .dot{width:10px;height:10px;border-radius:50%}
 .chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.chip .count{font-size:12px;font-weight:600;background:rgba(0,0,0,.07);border-radius:999px;padding:1px 7px;margin-left:2px}
+.chip[aria-pressed="true"] .count{background:rgba(255,255,255,.2)}
 .sep{flex:none;width:1px;background:var(--sand);margin:6px 4px}
 
 /* Grid */
@@ -1014,23 +1017,16 @@ const OPPORTUNITIES = [
 
 const grid = document.getElementById("grid");
 const filtersEl = document.getElementById("filters");
-let state = { channel: "all", status: "all" };
-try { const s = JSON.parse(localStorage.getItem("lc-filters")); if (s) state = Object.assign(state, s); } catch(e) {}
+let state = { channel: "real-estate", status: "all" };
+try { const s = JSON.parse(localStorage.getItem("lc-filters")); if (s && CHANNELS[s.channel]) state.channel = s.channel; } catch(e) {}
 
 const waLink = (text) => "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
 const esc = (s) => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 function buildFilters(){
-  const items = [
-    {k:"channel", v:"all", label:"All channels"},
-    ...Object.entries(CHANNELS).map(([v,c]) => ({k:"channel", v, label:c.label, color:c.color})),
-    {sep:true},
-    {k:"status", v:"all", label:"Any status"},
-    {k:"status", v:"open", label:"Open"},
-    {k:"status", v:"funded", label:"Funded"}
-  ];
+  const items = Object.entries(CHANNELS).map(([v,c]) => ({k:"channel", v, label:c.label, color:c.color, n:OPPORTUNITIES.filter(o=>o.channel===v && o.status==="open").length}));
   filtersEl.innerHTML = items.map(i => i.sep ? '<span class="sep" aria-hidden="true"></span>' :
-    `<button class="chip" type="button" data-k="${i.k}" data-v="${i.v}" aria-pressed="${state[i.k]===i.v}">${i.color?`<span class="dot" style="background:${i.color}"></span>`:""}${esc(i.label)}</button>`).join("");
+    `<button class="chip" type="button" data-k="${i.k}" data-v="${i.v}" aria-pressed="${state[i.k]===i.v}">${i.color?`<span class="dot" style="background:${i.color}"></span>`:""}${esc(i.label)}<span class="count">${i.n}</span></button>`).join("");
 }
 
 let map=null, layer=null;
